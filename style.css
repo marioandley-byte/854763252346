@@ -1,0 +1,1390 @@
+/* Variabel Warna & Font */
+:root {
+    --primary: #FF69B4; /* Hot Pink */
+    --secondary: #FFC1CC; /* Bubblegum Pink */
+    --bg-light: #FFF0F5; /* Lavender Blush */
+    --white: #ffffff;
+    --text: #4A4A4A;
+    --glass: rgba(255, 255, 255, 0.8);
+    --shadow: 0 10px 30px rgba(255, 105, 180, 0.2);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Quicksand', sans-serif;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--bg-light);
+    color: var(--text);
+    overflow-x: hidden;
+}
+
+/* ============================================
+   KAWAI LOADING SCREEN
+   ============================================ */
+.loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #ffc1cc, #ffb6c1, #ff91a4);
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.8s ease, visibility 0.8s ease;
+}
+
+.loading-container {
+    text-align: center;
+    max-width: 500px;
+    padding: 40px;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 30px;
+    box-shadow: 
+        0 20px 60px rgba(255, 105, 180, 0.3),
+        inset 0 0 0 5px #ffe6f0,
+        inset 0 0 20px rgba(255, 182, 193, 0.5);
+    border: 3px solid #ffc1cc;
+    position: relative;
+    overflow: hidden;
+}
+
+.loading-container::before {
+    content: '';
+    position: absolute;
+    top: -50px;
+    right: -50px;
+    width: 150px;
+    height: 150px;
+    background: radial-gradient(circle, rgba(255, 182, 193, 0.3) 0%, transparent 70%);
+    border-radius: 50%;
+}
+
+/* Karakter Kucing Imut */
+.kawaii-cat {
+    position: relative;
+    width: 180px;
+    height: 200px;
+    margin: 0 auto 30px;
+}
+
+.cat-ears {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+    z-index: 1;
+}
+
+.ear {
+    width: 40px;
+    height: 60px;
+    background: #ffc1cc;
+    border-radius: 50% 50% 0 0;
+    position: relative;
+    box-shadow: inset -5px -5px 10px rgba(255, 105, 180, 0.2);
+}
+
+.left-ear { transform: rotate(-15deg); }
+.right-ear { transform: rotate(15deg); }
+
+.ear::before {
+    content: '';
+    position: absolute;
+    top: 15px;
+    left: 10px;
+    width: 20px;
+    height: 25px;
+    background: #ff91a4;
+    border-radius: 50% 50% 0 0;
+}
+
+.cat-face {
+    position: absolute;
+    top: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 140px;
+    height: 120px;
+    background: #ffe6f0;
+    border-radius: 50%;
+    box-shadow: 
+        0 10px 30px rgba(255, 105, 180, 0.2),
+        inset 0 -10px 20px rgba(255, 182, 193, 0.3);
+    border: 5px solid #ffc1cc;
+}
+
+.eyes {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 30px;
+}
+
+.eye {
+    width: 30px;
+    height: 40px;
+    background: white;
+    border-radius: 50%;
+    position: relative;
+    overflow: hidden;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
+    border: 3px solid #ff91a4;
+    animation: blink 3s infinite;
+}
+
+.pupil {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: #ff69b4;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: lookAround 5s infinite alternate;
+}
+
+.cheeks {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    margin-top: 10px;
+}
+
+.cheek {
+    width: 25px;
+    height: 15px;
+    background: #ffb6c1;
+    border-radius: 50%;
+    opacity: 0.8;
+}
+
+.mouth {
+    position: absolute;
+    bottom: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.mouth-line {
+    width: 40px;
+    height: 20px;
+    border-bottom: 4px solid #ff69b4;
+    border-radius: 0 0 50% 50%;
+    position: relative;
+    animation: smile 4s infinite alternate;
+}
+
+.mouth-line::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 10px;
+    height: 5px;
+    background: #ff69b4;
+    border-radius: 50%;
+}
+
+.cat-body {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 80px;
+    background: #ffe6f0;
+    border-radius: 50% 50% 0 0;
+    border: 5px solid #ffc1cc;
+    border-bottom: none;
+    box-shadow: 0 -5px 15px rgba(255, 105, 180, 0.2);
+}
+
+.paw {
+    position: absolute;
+    bottom: -10px;
+    width: 35px;
+    height: 25px;
+    background: #ffc1cc;
+    border-radius: 50%;
+    animation: wavePaw 2s infinite alternate;
+}
+
+.left-paw {
+    left: 20px;
+    animation-delay: 0.5s;
+}
+
+.right-paw {
+    right: 20px;
+}
+
+/* Teks Loading */
+.loading-text {
+    font-size: 28px;
+    color: #ff69b4;
+    font-weight: 700;
+    margin: 30px 0 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+
+.loading-dots {
+    background: linear-gradient(45deg, #ff69b4, #ff85a2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.dot {
+    color: #ff69b4;
+    animation: bounce 1.5s infinite;
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.dot-1 { animation-delay: 0s; }
+.dot-2 { animation-delay: 0.3s; }
+.dot-3 { animation-delay: 0.6s; }
+
+/* Progress Bar */
+.loading-progress {
+    margin: 30px auto;
+    max-width: 400px;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 25px;
+    background: #ffe6f0;
+    border-radius: 15px;
+    overflow: hidden;
+    position: relative;
+    border: 3px solid #ffc1cc;
+    box-shadow: inset 0 0 10px rgba(255, 105, 180, 0.2);
+}
+
+.progress-fill {
+    width: 0%;
+    height: 100%;
+    background: linear-gradient(90deg, #ff69b4, #ff8da1, #ffb6c1);
+    border-radius: 15px;
+    transition: width 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.progress-fill::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, 
+        transparent, 
+        rgba(255, 255, 255, 0.4), 
+        transparent);
+    animation: shimmer 2s infinite;
+}
+
+.progress-sparkle {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    color: white;
+    font-size: 14px;
+    animation: sparkle 1.5s infinite;
+}
+
+.progress-text {
+    font-size: 20px;
+    color: #ff69b4;
+    font-weight: 700;
+    margin-top: 15px;
+    text-shadow: 0 2px 5px rgba(255, 105, 180, 0.2);
+}
+
+/* Pesan Imut */
+.kawaii-message {
+    margin-top: 25px;
+    font-size: 16px;
+    color: #ff85a2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-weight: 600;
+}
+
+.kawaii-message i {
+    color: #ff69b4;
+    animation: heartbeat 1.5s infinite;
+}
+
+/* Animations */
+@keyframes blink {
+    0%, 40%, 60%, 100% { height: 40px; }
+    50% { height: 10px; }
+}
+
+@keyframes lookAround {
+    0% { transform: translate(-70%, -50%); }
+    25% { transform: translate(-30%, -50%); }
+    50% { transform: translate(-50%, -50%); }
+    75% { transform: translate(-70%, -30%); }
+    100% { transform: translate(-30%, -30%); }
+}
+
+@keyframes smile {
+    0%, 100% { width: 40px; }
+    50% { width: 45px; }
+}
+
+@keyframes wavePaw {
+    0% { transform: translateY(0) rotate(0deg); }
+    100% { transform: translateY(-15px) rotate(10deg); }
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+@keyframes shimmer {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+@keyframes sparkle {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+}
+
+@keyframes heartbeat {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+}
+
+@keyframes floatCat {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    25% { transform: translateY(-10px) rotate(5deg); }
+    75% { transform: translateY(5px) rotate(-5deg); }
+}
+
+/* Tambahkan animasi mengambang pada kucing */
+.kawaii-cat {
+    animation: floatCat 6s ease-in-out infinite;
+}
+
+/* Animasi keluar loading */
+.loading-screen.fade-out {
+    opacity: 0;
+    visibility: hidden;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .loading-container {
+        margin: 20px;
+        padding: 30px 20px;
+    }
+    
+    .kawaii-cat {
+        width: 150px;
+        height: 180px;
+    }
+    
+    .cat-face {
+        width: 120px;
+        height: 100px;
+        top: 50px;
+    }
+    
+    .loading-text {
+        font-size: 24px;
+    }
+    
+    .progress-bar {
+        height: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .kawaii-cat {
+        width: 120px;
+        height: 150px;
+    }
+    
+    .cat-face {
+        width: 100px;
+        height: 80px;
+        top: 40px;
+    }
+    
+    .eye {
+        width: 25px;
+        height: 35px;
+    }
+    
+    .loading-text {
+        font-size: 20px;
+    }
+}
+
+/* Navigasi Glassmorphism */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 20px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--glass);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--primary);
+}
+
+.logo span { color: var(--text); }
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text);
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    color: var(--primary);
+}
+
+.menu-btn {
+    display: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: var(--primary);
+}
+
+/* Hero Section */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 10%;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-content {
+    max-width: 500px;
+    z-index: 2;
+}
+
+.hello-tag {
+    background: var(--secondary);
+    color: var(--white);
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 600;
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+.hero h1 { font-size: 48px; margin-bottom: 10px; }
+.highlight { color: var(--primary); }
+.hero h3 { font-size: 24px; margin-bottom: 20px; color: #888; }
+.hero p { margin-bottom: 30px; line-height: 1.6; }
+
+/* Tombol */
+.btn {
+    padding: 12px 30px;
+    background: linear-gradient(45deg, var(--primary), #ff8da1);
+    color: var(--white);
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 600;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s;
+    display: inline-block;
+    border: none;
+    cursor: pointer;
+}
+
+.btn:hover { transform: translateY(-3px); }
+
+.btn-outline {
+    background: transparent;
+    border: 2px solid var(--primary);
+    color: var(--primary);
+    box-shadow: none;
+}
+
+.btn-outline:hover {
+    background: var(--primary);
+    color: var(--white);
+}
+
+/* Gambar Hero Animasi */
+.hero-img img {
+    width: 400px;
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+    border: 5px solid var(--white);
+    box-shadow: var(--shadow);
+    animation: float 6s ease-in-out infinite;
+    background: #fff;
+    z-index: 2;
+    position: relative;
+}
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+    100% { transform: translateY(0px); }
+}
+
+/* Dekorasi Latar */
+.circle {
+    position: absolute;
+    border-radius: 50%;
+    background: linear-gradient(45deg, #ffe6eb, #fff0f5);
+    z-index: 1;
+}
+.c1 {
+    top: -150px; /* Geser lebih ke atas */
+    right: -150px; /* Geser lebih ke kanan luar */
+    opacity: 0.3; /* Buat lebih transparan agar tidak terlalu mencolok */
+}
+.c2 { width: 200px; height: 200px; bottom: 50px; left: -50px; }
+
+/* Section Umum */
+.section { padding: 80px 10%; text-align: center; }
+.section-title {
+    font-size: 32px;
+    color: var(--primary);
+    margin-bottom: 20px;
+    position: relative;
+    display: inline-block;
+}
+
+
+
+
+
+/* Contact & Footer */
+.contact-box {
+    background: var(--white);
+    padding: 40px;
+    border-radius: 30px;
+    display: inline-block;
+    box-shadow: var(--shadow);
+}
+.social-icons { margin: 20px 0; }
+.social-icons a {
+    color: var(--text);
+    font-size: 24px;
+    margin: 0 10px;
+    transition: 0.3s;
+}
+.social-icons a:hover { color: var(--primary); }
+footer {
+    padding: 20px;
+    text-align: center;
+    background: var(--primary);
+    color: var(--white);
+    font-size: 14px;
+}
+
+/* ============================================
+   MUSIC SECTION - IMPROVED VERSION
+   ============================================ */
+
+/* MUSIC SECTION STYLES */
+.music-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Player Card */
+.player-card {
+    background: var(--white);
+    border-radius: 30px;
+    padding: 30px;
+    box-shadow: var(--shadow);
+    margin-bottom: 40px;
+    border: 2px solid #fff0f5;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Decorasi untuk player */
+.player-card::before {
+    content: '';
+    position: absolute;
+    top: -50px;
+    right: -50px;
+    width: 150px;
+    height: 150px;
+    background: linear-gradient(45deg, #ffe6f0, transparent);
+    border-radius: 50%;
+    opacity: 0.3;
+}
+
+.player-card::after {
+    content: '';
+    position: absolute;
+    bottom: -30px;
+    left: -30px;
+    width: 100px;
+    height: 100px;
+    background: linear-gradient(45deg, transparent, #fff0f5);
+    border-radius: 50%;
+    opacity: 0.3;
+}
+
+.player-header {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 25px;
+    align-items: center;
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 2;
+}
+
+/* Album Art dengan efek yang lebih baik */
+.album-art {
+    position: relative;
+    width: 220px;
+    height: 220px;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 15px 35px rgba(255, 105, 180, 0.4);
+    border: 8px solid var(--white);
+    transition: transform 0.3s ease;
+}
+
+.album-art:hover {
+    transform: scale(1.03);
+}
+
+.album-art img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.vinyl {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 70px;
+    height: 70px;
+    background: linear-gradient(45deg, #1a1a1a, #000000);
+    border-radius: 50%;
+    border: 3px solid var(--primary);
+    box-shadow: 0 0 20px rgba(0,0,0,0.7), inset 0 0 10px rgba(255,255,255,0.1);
+    transition: transform 0.3s;
+}
+
+.vinyl::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 15px;
+    height: 15px;
+    background: var(--white);
+    border-radius: 50%;
+    z-index: 2;
+}
+
+.vinyl::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 30px;
+    height: 30px;
+    border: 2px solid rgba(255,255,255,0.2);
+    border-radius: 50%;
+}
+
+.vinyl.spinning {
+    animation: spin 3s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: translate(-50%, -50%) rotate(0deg); }
+    100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* Song Info - Lebih rapi */
+.song-info {
+    flex: 1;
+    min-width: 300px;
+}
+
+.song-title {
+    font-size: 32px;
+    color: var(--primary);
+    margin-bottom: 8px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+
+.artist {
+    font-size: 18px;
+    color: #777;
+    margin-bottom: 25px;
+    font-weight: 500;
+}
+
+/* Progress Container yang lebih baik */
+.progress-container {
+    margin: 30px 0 20px 0;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 8px;
+    background: linear-gradient(to right, #f0f0f0, #e6e6e6);
+    border-radius: 4px;
+    overflow: hidden;
+    cursor: pointer;
+    margin-bottom: 10px;
+    position: relative;
+}
+
+.progress {
+    width: 0%;
+    height: 100%;
+    background: linear-gradient(to right, var(--primary), #ff85a2);
+    border-radius: 4px;
+    transition: width 0.1s;
+    position: relative;
+}
+
+.progress::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 16px;
+    height: 16px;
+    background: var(--white);
+    border-radius: 50%;
+    border: 3px solid var(--primary);
+    box-shadow: 0 0 10px rgba(255, 105, 180, 0.5);
+}
+
+.time-display {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    color: #777;
+    font-weight: 600;
+}
+
+/* Player Controls - Diperbaiki */
+.player-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+    margin-top: 25px;
+    position: relative;
+    z-index: 2;
+}
+
+.control-btn {
+    background: var(--white);
+    border: 2px solid #ffe6f0;
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    color: var(--primary);
+    font-size: 18px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(255, 105, 180, 0.15);
+}
+
+.control-btn:hover {
+    background: var(--primary);
+    color: white;
+    transform: scale(1.15);
+    border-color: var(--primary);
+    box-shadow: 0 8px 20px rgba(255, 105, 180, 0.3);
+}
+
+.play-btn {
+    background: linear-gradient(135deg, var(--primary), #ff85a2);
+    color: white;
+    width: 65px;
+    height: 65px;
+    font-size: 22px;
+    border: none;
+    box-shadow: 0 8px 25px rgba(255, 105, 180, 0.4);
+}
+
+.play-btn:hover {
+    background: linear-gradient(135deg, #ff5ca0, var(--primary));
+    transform: scale(1.15);
+}
+
+.volume-control {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-left: 30px;
+    background: #fff8fa;
+    padding: 8px 15px;
+    border-radius: 50px;
+    border: 1px solid #ffe6f0;
+}
+
+.volume-control i {
+    color: var(--primary);
+    font-size: 18px;
+    width: 24px;
+    text-align: center;
+}
+
+.volume-slider {
+    width: 90px;
+    height: 5px;
+    -webkit-appearance: none;
+    background: #e6e6e6;
+    border-radius: 3px;
+    outline: none;
+}
+
+.volume-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 16px;
+    height: 16px;
+    background: var(--primary);
+    border-radius: 50%;
+    cursor: pointer;
+    border: 3px solid white;
+    box-shadow: 0 0 5px rgba(0,0,0,0.2);
+}
+
+/* Playlist - Diperbaiki */
+.playlist-container {
+    background: var(--white);
+    border-radius: 25px;
+    padding: 30px;
+    box-shadow: var(--shadow);
+    margin-top: 40px;
+    border: 2px solid #fff0f5;
+}
+
+.playlist-title {
+    color: var(--primary);
+    margin-bottom: 25px;
+    font-size: 26px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.playlist-title::before {
+    content: '🎵';
+    font-size: 24px;
+}
+
+.song-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.song-item {
+    display: flex;
+    align-items: center;
+    padding: 18px 20px;
+    background: #fff8fa;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid transparent;
+}
+
+.song-item:hover {
+    background: #ffe6f0;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(255, 105, 180, 0.1);
+    border-color: #ffc1cc;
+}
+
+.song-item.playing {
+    background: linear-gradient(to right, #ffe6f0, #fff5f8);
+    border-left: 5px solid var(--primary);
+    box-shadow: 0 5px 15px rgba(255, 105, 180, 0.15);
+}
+
+.song-number {
+    font-size: 18px;
+    color: #999;
+    width: 40px;
+    font-weight: 600;
+    text-align: center;
+}
+
+.song-cover {
+    width: 60px;
+    height: 60px;
+    border-radius: 12px;
+    overflow: hidden;
+    margin-right: 20px;
+    border: 3px solid white;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.song-cover img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.song-details {
+    flex: 1;
+}
+
+.song-name {
+    font-size: 18px;
+    color: var(--text);
+    margin-bottom: 6px;
+    font-weight: 600;
+}
+
+.song-artist {
+    font-size: 14px;
+    color: #888;
+    font-weight: 500;
+}
+
+.song-duration {
+    color: #777;
+    font-weight: 600;
+    font-size: 15px;
+    margin-right: 40px;
+}
+
+.play-overlay {
+    position: absolute;
+    right: 20px;
+    background: var(--primary);
+    color: white;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: all 0.3s ease;
+    transform: translateX(10px);
+    box-shadow: 0 5px 15px rgba(255, 105, 180, 0.3);
+}
+
+.song-item:hover .play-overlay {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Music Info */
+.music-info {
+    margin-top: 40px;
+    padding: 20px;
+    background: linear-gradient(to right, #fff8fa, #fff5f8);
+    border-radius: 20px;
+    text-align: center;
+    color: #666;
+    font-size: 15px;
+    border: 2px dashed #ffc1cc;
+}
+
+.music-info i {
+    color: var(--primary);
+    margin-right: 10px;
+    font-size: 18px;
+}
+
+.music-info code {
+    background: #ffe6f0;
+    padding: 4px 10px;
+    border-radius: 8px;
+    font-family: 'Courier New', monospace;
+    color: var(--primary);
+    font-weight: 600;
+    margin: 0 5px;
+}
+
+/* ============================================
+   RESPONSIVE FIXES - Mobile & Tablet
+   ============================================ */
+
+/* Tablet */
+@media (max-width: 992px) {
+    .album-art {
+        width: 200px;
+        height: 200px;
+    }
+    
+    .song-title {
+        font-size: 28px;
+    }
+}
+
+/* Mobile (Portrait) */
+@media (max-width: 768px) {
+    .music-container {
+        padding: 0 15px;
+    }
+    
+    .player-card {
+        padding: 25px 20px;
+        border-radius: 25px;
+    }
+    
+    .player-header {
+        flex-direction: column;
+        text-align: center;
+        gap: 25px;
+    }
+    
+    .album-art {
+        width: 180px;
+        height: 180px;
+        margin: 0 auto;
+    }
+    
+    .vinyl {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .song-info {
+        min-width: 100%;
+        width: 100%;
+    }
+    
+    .song-title {
+        font-size: 26px;
+        margin-top: 10px;
+    }
+    
+    .artist {
+        font-size: 16px;
+        margin-bottom: 20px;
+    }
+    
+    .progress-bar {
+        height: 7px;
+    }
+    
+    .progress::after {
+        width: 14px;
+        height: 14px;
+    }
+    
+    .player-controls {
+        gap: 20px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .control-btn {
+        width: 50px;
+        height: 50px;
+        font-size: 16px;
+    }
+    
+    .play-btn {
+        width: 60px;
+        height: 60px;
+        font-size: 20px;
+    }
+    
+    .volume-control {
+        margin-left: 0;
+        margin-top: 15px;
+        order: 3;
+        width: 100%;
+        justify-content: center;
+        padding: 10px 20px;
+    }
+    
+    .volume-slider {
+        width: 120px;
+    }
+    
+    .playlist-container {
+        padding: 25px 20px;
+        border-radius: 20px;
+    }
+    
+    .playlist-title {
+        font-size: 22px;
+        justify-content: center;
+    }
+    
+    .song-item {
+        padding: 15px;
+    }
+    
+    .song-number {
+        font-size: 16px;
+        width: 30px;
+    }
+    
+    .song-cover {
+        width: 50px;
+        height: 50px;
+        margin-right: 15px;
+    }
+    
+    .song-name {
+        font-size: 16px;
+    }
+    
+    .song-artist {
+        font-size: 13px;
+    }
+    
+    .song-duration {
+        font-size: 14px;
+        margin-right: 30px;
+    }
+    
+    .play-overlay {
+        width: 40px;
+        height: 40px;
+        right: 15px;
+    }
+}
+
+/* Mobile (Small) */
+@media (max-width: 480px) {
+    .album-art {
+        width: 160px;
+        height: 160px;
+    }
+    
+    .song-title {
+        font-size: 24px;
+    }
+    
+    .player-controls {
+        gap: 15px;
+    }
+    
+    .control-btn {
+        width: 48px;
+        height: 48px;
+    }
+    
+    .play-btn {
+        width: 58px;
+        height: 58px;
+    }
+    
+    .song-item {
+        padding: 12px 15px;
+    }
+    
+    .song-cover {
+        width: 45px;
+        height: 45px;
+        margin-right: 12px;
+    }
+    
+    .play-overlay {
+        width: 38px;
+        height: 38px;
+        right: 12px;
+    }
+    
+    .song-duration {
+        display: none;
+    }
+}
+
+/* ================================
+   SCROLL SNAP ALA REELS
+   ================================ */
+html, body {
+    scroll-behavior: smooth;
+}
+
+body {
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
+}
+
+/* Semua section full layar */
+section {
+    min-height: 100vh;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+}
+
+/* ================================
+   ANIMASI MASUK SECTION
+   ================================ */
+
+/* kondisi awal (sembunyi) */
+.hero,
+.section {
+    opacity: 0;
+    transform: translateY(40px) scale(0.96);
+    transition:
+        opacity 0.9s cubic-bezier(.4,0,.2,1),
+        transform 0.9s cubic-bezier(.4,0,.2,1);
+}
+
+/* kondisi aktif */
+.hero.active,
+.section.active {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+/* Desktop besar - Perbaikan tombol */
+@media (min-width: 1200px) {
+    .music-container {
+        max-width: 1000px;
+    }
+    
+    .player-controls {
+        gap: 30px;
+    }
+    
+    .control-btn {
+        width: 60px;
+        height: 60px;
+        font-size: 20px;
+    }
+    
+    .play-btn {
+        width: 70px;
+        height: 70px;
+        font-size: 24px;
+    }
+    
+    .volume-control {
+        margin-left: 40px;
+    }
+}
+
+/* ================================
+   RESPONSIF MOBILE (FINAL FIX)
+   ================================ */
+@media (max-width: 768px) {
+
+    /* Navbar */
+    .navbar {
+        padding: 15px 20px;
+    }
+
+    .menu-btn {
+        display: block;
+    }
+
+    .nav-links {
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background: var(--white);
+        flex-direction: column;
+        padding: 20px;
+        gap: 15px;
+        text-align: center;
+        display: none;
+        box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    /* ====================
+       HERO SECTION (FIX)
+       ==================== */
+    .hero {
+        flex-direction: column-reverse;
+        text-align: center;
+
+        min-height: auto;              /* matikan 100vh */
+        padding-top: 80px;             /* diturunin dikit */
+        padding-bottom: 40px;
+
+        justify-content: flex-start;   /* jangan space-between */
+        align-items: center;
+        gap: 12px;                     /* jarak foto & teks */
+    }
+
+    .hero-img img {
+        width: 250px;
+        margin-bottom: 0;
+    }
+
+    .hero-content {
+        margin-top: 6px;               /* micro spacing */
+    }
+
+    .hero h1 {
+        font-size: 32px;
+    }
+
+    /* Grid & Section lain */
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .about-content {
+        padding: 25px;
+    }
+}
